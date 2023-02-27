@@ -67,6 +67,7 @@ setInterval(function() {
             console.log('E-mail envoyé: ' + info.response);
         }
     });
-}
+
         PrixOk = false;
-    }, 1000);
+    }
+}, 1000);
