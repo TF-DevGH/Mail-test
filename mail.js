@@ -1,5 +1,5 @@
 // Importe la bibliothèque Nodemailer
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 // Crée un transporteur SMTP pour envoyer l'e-mail
 nodemailer.createTestAccount((err, account) => {
