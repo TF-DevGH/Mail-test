@@ -10,7 +10,7 @@ nodemailer.createTestAccount((err, account) => {
         secure: false, // true for 465, false for other ports
         auth: {
             user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
+            pass: account.pass // generated ethereal password
         }
     });
 });
@@ -25,7 +25,7 @@ const fromEmail = 'MyBot2266@gmail.com';
 const emailBody = 'Bonjour, \n\nLe prix est OK.';
 
 // Envoie un e-mail prédéfini si la condition PrixOk est vraie
-if (PrixOk){
+if (PrixOk) {
     // Paramètres de l'e-mail à envoyer
     const mailOptions = {
         from: fromEmail,
@@ -57,4 +57,16 @@ modifierButton.addEventListener("click", function () {
     // Inverse la valeur de PrixOk
     PrixOk = !PrixOk;
 });
-setInterval(function () { console.log(PrixOk) }, 1000);
+setInterval(function() {
+    if (PrixOk)
+    {
+        transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('E-mail envoyé: ' + info.response);
+        }
+    });
+}
+        PrixOk = false;
+    }, 1000);
