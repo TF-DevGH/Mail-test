@@ -33,6 +33,7 @@ if (PrixOk) {
         subject: 'Confirmation de prix',
         text: emailBody
     };
+    console.log('test');
 
     // Envoie l'e-mail à l'utilisateur
     transporter.sendMail(mailOptions, function (error, info) {
